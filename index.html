@@ -65,7 +65,7 @@
   <div id="splash">
     <button class="mute" id="muteToggle" aria-label="Toggle sound">🔊 Sound On</button>
     <div class="splash-card">
-      <img src="../splash image.png" alt="Mitsy's Revenge splash"/>
+      <img src="splash image.png" alt="Mitsy's Revenge splash"/>
       <div class="splash-overlay">
         <h1 class="title">Mitsy's Revenge</h1>
         <p class="tag">Collect nugs, blaze when you’ve got two, smoke it up.</p>
@@ -78,7 +78,7 @@
 
   <!-- Intro video (no skip) -->
   <div id="introWrap" class="hidden">
-    <video id="introVid" playsinline preload="auto" src="../intro video.mp4"></video>
+    <video id="introVid" playsinline preload="auto" src="intro video.mp4"></video>
   </div>
 
   <!-- End screen -->
@@ -91,8 +91,7 @@
   </div>
 
   <!-- Audio -->
-  <audio id="music" preload="auto" src="../Welcome to...The Streets of Aberdeen .mp3"></audio>
-  <!-- SFX are created dynamically from list -->
+  <audio id="music" preload="auto" src="Welcome to...The Streets of Aberdeen .mp3"></audio>
 </div>
 
 <script>
@@ -133,19 +132,19 @@ const CATCHPHRASES = [
   "What’s a cat’s favorite film genre? ‘Cat-nip-and-chill’ movies."
 ];
 
-// include all your listed SFX (you can add more names here later)
+// all your SFX
 const SFX_FILES = [
-  "../Recording (16).m4a",
-  "../Recording (17).m4a",
-  "../Recording (18).m4a",
-  "../Recording (19).m4a",
-  "../Recording (20).m4a",
-  "../Recording (21).m4a",
-  "../Recording (22).m4a",
-  "../Recording (23).m4a",
-  "../Recording (24).m4a",
-  "../Recording new (18).m4a",
-  "../Recording new (19).m4a"
+  "Recording (16).m4a",
+  "Recording (17).m4a",
+  "Recording (18).m4a",
+  "Recording (19).m4a",
+  "Recording (20).m4a",
+  "Recording (21).m4a",
+  "Recording (22).m4a",
+  "Recording (23).m4a",
+  "Recording (24).m4a",
+  "Recording new (18).m4a",
+  "Recording new (19).m4a"
 ];
 
 /* ======= DOM ======= */
@@ -185,14 +184,14 @@ smokeBtn.addEventListener('click', ()=> trySmoke());
 
 /* ======= ASSETS ======= */
 const img = {
-  bg: loadImage('../bg.png'),
-  catWalk: loadImage('../walk.png'),
-  catSit: loadImage('../sit.png'),
-  catSmoke: loadImage('../smoke.png'),
-  nugWeed: loadImage('../weed.png'),
-  nugJoint: loadImage('../joint.png'),
-  nugBong: loadImage('../bong.png'),
-  splash: loadImage('../splash image.png'),
+  bg: loadImage('bg.png'),
+  catWalk: loadImage('walk.png'),
+  catSit: loadImage('sit.png'),
+  catSmoke: loadImage('smoke.png'),
+  nugWeed: loadImage('weed.png'),
+  nugJoint: loadImage('joint.png'),
+  nugBong: loadImage('bong.png'),
+  splash: loadImage('splash image.png'),
 };
 function loadImage(src){ const i=new Image(); i.src = src; return i; }
 
@@ -224,12 +223,12 @@ const state = {
   finished: false, started: false
 };
 
-// spawn ≥ 40 pickups across world
+// spawn ≥ 45 pickups across world
 function spawnPickups(){
   const types = ['weed','joint','bong'];
   state.nuggets.length = 0;
-  for(let i=0;i<45;i++){
-    const x = 250 + i * ( (WORLD.w-500)/44 );
+  for(let i=0;i<48;i++){
+    const x = 220 + i * ( (WORLD.w-440)/47 );
     const hop = (i%3===1)? -120 : (i%5===0? -200 : 0);
     const y = 550 + hop;
     const type = types[Math.floor(Math.random()*types.length)];
